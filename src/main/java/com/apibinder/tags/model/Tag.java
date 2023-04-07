@@ -1,4 +1,4 @@
-package com.apibinder.tags.dto;
+package com.apibinder.tags.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.math.BigInteger;
 @AllArgsConstructor
 @Getter
 @Setter
-public class TagDto {
+public class Tag {
 
     BigInteger id;
     String key;
