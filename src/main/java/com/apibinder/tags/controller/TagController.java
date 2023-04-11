@@ -1,5 +1,6 @@
 package com.apibinder.tags.controller;
 
+import com.apibinder.tags.dto.ValuePercentDto;
 import com.apibinder.tags.dto.TagDto;
 import com.apibinder.tags.service.TagService.TagService;
 import lombok.RequiredArgsConstructor;
@@ -19,4 +20,9 @@ public class TagController {
         return new ResponseEntity<>(tagService.persist(tagDto), HttpStatus.CREATED);
     }
 
+    @GetMapping("percent/{uid}/{key}")
+    public ResponseEntity<ValuePercentDto> searchKeyPercentsByUid(@PathVariable("uid") String uid, @PathVariable("key") String key){
+        // TODO: 8.04.2023
+        return null;
+    }
 }
