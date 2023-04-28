@@ -3,6 +3,7 @@ package com.apibinder.tags.service.TagService;
 import com.apibinder.tags.dto.TagDto;
 import com.apibinder.tags.mapper.TagMapper;
 import com.apibinder.tags.model.Tag;
+import com.apibinder.tags.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class TagService {
 
     private final TagMapper tagMapper;
+    private final TagRepository tagRepository;
 
     public TagDto persist(TagDto tagDto) {
         Tag tag = persist(tagMapper.map(tagDto));
@@ -18,7 +20,9 @@ public class TagService {
     }
 
     private Tag persist(Tag tag) {
-        // TODO: 7.04.2023
-        return null;
+        if(tag.getId() == null) {
+            tag.setCreatedDateUx(System.currentTimeMillis()/1000);
+        }
+        return tagRepository.save(tag);
     }
 }

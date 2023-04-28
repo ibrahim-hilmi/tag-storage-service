@@ -1,12 +1,10 @@
 server:
   port: 8084
-
 spring:
-  data:
-    mongodb:
-      database: restgateway
-      host: localhost
-      port: 27017
-      auto-index-creation: true
-  application:
-    name: Sample Spring Boot App
+  datasource:
+    url: jdbc:mysql://localhost:3306/_tag_db
+    username: root
+    password: deneme123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true

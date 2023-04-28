@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,10 +12,9 @@ import java.math.BigInteger;
 @Setter
 public class TagDto {
 
-    BigInteger id;
-    String key;
-    String value;
-    String uid;
-    Integer createdDateUx;
-
+    private Long id;
+    private String key;
+    private String value;
+    private String uid;
+    private Long createdDateUx;
 }
