@@ -2,7 +2,7 @@ package com.apibinder.tags.controller;
 
 import com.apibinder.tags.dto.ValuePercentDto;
 import com.apibinder.tags.dto.TagDto;
-import com.apibinder.tags.service.TagService.TagService;
+import com.apibinder.tags.service.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

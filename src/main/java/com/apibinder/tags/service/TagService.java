@@ -1,4 +1,4 @@
-package com.apibinder.tags.service.TagService;
+package com.apibinder.tags.service;
 
 import com.apibinder.tags.dto.TagDto;
 import com.apibinder.tags.mapper.TagMapper;
