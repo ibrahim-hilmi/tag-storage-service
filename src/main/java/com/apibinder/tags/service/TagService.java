@@ -8,6 +8,7 @@ import com.apibinder.tags.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -31,5 +32,15 @@ public class TagService {
 
     public Map<String, Integer> findTagCounts(String uid, String key) {
         return TagConverter.convertTagCounts(tagRepository.findTagCounts(uid, key));
+    }
+
+    public Map<String, Integer> findTagPercents(String uid, String key) {
+        Map<String, Integer> percents = new HashMap<>();
+        Map<String, Integer> counts = findTagCounts(uid, key);
+        int sum = counts.values().stream().mapToInt(i -> i).sum();
+        counts.entrySet()
+                .forEach(
+                        entry -> percents.put(entry.getKey(), entry.getValue() * 100 / sum));
+        return percents;
     }
 }

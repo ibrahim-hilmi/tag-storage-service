@@ -26,4 +26,9 @@ public class TagController {
     public ResponseEntity<Map<String, Integer>> getTagCounts(@PathVariable("uid") String uid, @PathVariable("key") String key){
         return new ResponseEntity<>(tagService.findTagCounts(uid, key), HttpStatus.OK);
     }
+
+    @GetMapping("percent/{uid}/{key}")
+    public ResponseEntity<Map<String, Integer>> getTagPercent(@PathVariable("uid") String uid, @PathVariable("key") String key){
+        return new ResponseEntity<>(tagService.findTagPercents(uid, key), HttpStatus.OK);
+    }
 }
