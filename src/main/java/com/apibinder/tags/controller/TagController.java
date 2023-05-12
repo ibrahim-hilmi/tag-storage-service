@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/tag")
@@ -20,9 +22,8 @@ public class TagController {
         return new ResponseEntity<>(tagService.persist(tagDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("percent/{uid}/{key}")
-    public ResponseEntity<ValuePercentDto> searchKeyPercentsByUid(@PathVariable("uid") String uid, @PathVariable("key") String key){
-        // TODO: 8.04.2023
-        return null;
+    @GetMapping("count/{uid}/{key}")
+    public ResponseEntity<Map<String, Integer>> getTagCounts(@PathVariable("uid") String uid, @PathVariable("key") String key){
+        return new ResponseEntity<>(tagService.findTagCounts(uid, key), HttpStatus.OK);
     }
 }

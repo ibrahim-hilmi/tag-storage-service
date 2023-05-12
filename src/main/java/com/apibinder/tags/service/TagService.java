@@ -1,11 +1,14 @@
 package com.apibinder.tags.service;
 
+import com.apibinder.tags.converter.TagConverter;
 import com.apibinder.tags.dto.TagDto;
 import com.apibinder.tags.mapper.TagMapper;
 import com.apibinder.tags.model.Tag;
 import com.apibinder.tags.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +27,9 @@ public class TagService {
             tag.setCreatedDateUx(System.currentTimeMillis()/1000);
         }
         return tagRepository.save(tag);
+    }
+
+    public Map<String, Integer> findTagCounts(String uid, String key) {
+        return TagConverter.convertTagCounts(tagRepository.findTagCounts(uid, key));
     }
 }
