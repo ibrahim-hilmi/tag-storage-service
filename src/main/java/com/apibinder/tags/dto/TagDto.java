@@ -11,10 +11,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TagDto {
-
     private Long id;
-    private String key;
-    private String value;
+    private String tag_key;
+    private String tag_value;
     private String uid;
     private Long createdDateUx;
 }

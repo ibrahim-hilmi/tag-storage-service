@@ -19,9 +19,10 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "`key`")
-    private String key;
-    private String value;
+    @Column(name = "tag_key")
+    private String tag_key;
+    @Column(name = "tag_value")
+    private String tag_value;
     private String uid;
 
     @Column(name = "created_date_ux")
